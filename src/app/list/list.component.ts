@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileService } from '../file/file.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  private files: string[];
+
+  constructor(private service: FileService) {}
 
   ngOnInit() {
+    this.service.list()
+      .subscribe(files => this.files = files, erro => console.log(erro));
+  }
+
+  delete(file) {
+    this.service.delete(this.files, file).subscribe(() => {
+      console.log('Removido com sucesso!');
+    });
   }
 
 }

@@ -1,3 +1,16 @@
-<p>
-  upload works!
-</p>
+<mat-card style="margin: 7px;">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Upload</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="container">
+    <div class="button-row">
+      <button mat-raised-button color="primary" (click)="file.click()">
+        <mat-icon>attachment</mat-icon>
+        <span>Add file</span>
+      </button>
+      <input hidden type="file" #file (change)="preview($event)" multiple>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -11,6 +11,7 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
+  MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -34,10 +35,13 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { UploadComponent } from './upload/upload.component';
+
+import { FileService } from './file/file.service';
 
 import { routing } from './app.routes';
 
@@ -53,11 +57,15 @@ import { routing } from './app.routes';
     routing,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
     MatMenuModule,
-    MatIconModule
+    MatToolbarModule,
+    AsyncLocalStorageModule
   ],
-  providers: [],
+  providers: [FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
